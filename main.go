@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -32,7 +33,7 @@ func main() {
 
 	/* start server */
 	fmt.Println("starting server...")
-	err := http.ListenAndServe(":8080", r)
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), r)
 	if err != nil {
 		log.Fatal("failed to start server:", err)
 	}
