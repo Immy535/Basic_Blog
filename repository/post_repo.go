@@ -19,6 +19,7 @@ func (r *PostRepo) GetAllPosts() ([]models.Post, error) {
 	var posts []models.Post
 	err := database.Db.Preload("Author").Find(&posts).Error
 	return posts, err
+	
 }
 
 func (r *PostRepo) GetPostByID(id string) (*models.Post, error) {
